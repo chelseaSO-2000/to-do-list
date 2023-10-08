@@ -14,13 +14,13 @@ align-items: center;
 justify-content: center;
 margin-bottom: 10px;
 padding: 5px 0;
-
 `
 
 const Ol = styled.ol`
   display: flex;
   list-style-type: none;
   padding: 20px;
+  margin: 0;
 `;
 
 const Li = styled.li`

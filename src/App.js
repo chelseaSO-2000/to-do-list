@@ -4,30 +4,35 @@ import styled from "styled-components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const FullScreen = styled.div`
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content:center;
+align-items: center;
+`
 
-const Container = styled.div`
+const TodoListBackground = styled.div`
   box-shadow: 5px 5px 10px grey;
   background-color: #EEE3CB;
   border-radius: 10px;
   min-height: 150px;
-  margin: 50% 25%;
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 0;
+  padding: 18px 20px;
 
 `;
 
-const InnerContainer = styled.div`
+const TodoListContent = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 h3{
   color: #472D2D;
-margin-top: 5px;
-margin-bottom: 0px;
+margin: 0;
+
 }
 `
 
@@ -119,8 +124,9 @@ useEffect(()=>{
   
 
   return (
-    <Container>
-    <InnerContainer>
+    <FullScreen>
+    <TodoListBackground>
+    <TodoListContent>
       <ToastContainer position="top-center" autoClose={200}/>
       <h3>Todo list using local storage</h3>
       <Form onSubmit={handleSubmit}>
@@ -133,8 +139,9 @@ useEffect(()=>{
       </Form>
       <List items={list} editItem={editItem} removeItem={removeItem} />
       <ClearBtn onClick={clearItems}>Clear Items</ClearBtn>
-    </InnerContainer>
-    </Container>
+    </TodoListContent>
+    </TodoListBackground>
+    </FullScreen>
   );
 };
 
